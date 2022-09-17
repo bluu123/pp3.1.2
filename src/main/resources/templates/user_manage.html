@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${user.id == null} ? 'User create' : 'User update'"></title>
+</head>
+<body>
+
+<div th:if="${user.id == null}">
+    <h1>User create</h1>
+    <form method="post" th:Object="${user}" th:action="@{/admin/create}">
+        <div>
+            <label>Name:</label>
+            <input th:field="*{name}" type="text"/>
+        </div>
+        <div>
+            <label>Last name:</label>
+            <input th:field="*{lastName}" type="text"/>
+        </div>
+        <div>
+            <label>Email:</label>
+            <input th:field="*{email}" type="text"/>
+        </div>
+        <div>
+            <label>Age:</label>
+            <input th:field="*{age}" type="number"/>
+        </div>
+        <div>
+            <label>Username:</label>
+            <input th:field="*{username}" type="text"/>
+        </div>
+        <div>
+            <label>Password:</label>
+            <input th:field="*{password}" type="password"/>
+        </div>
+        <tr>
+            <td>
+                <label>Roles:
+                    <select size="2" multiple name="listRoles" required="required">
+                        <option selected="selected" value="1">USER</option>
+                        <option value="2">ADMIN</option>
+                    </select>
+                </label>
+            </td>
+        </tr>
+        <tr>
+            <button type="submit">Save</button>
+    </form>
+</div>
+
+<div th:if="${user.id != null}">
+    <h1>User update</h1>
+    <form method="post" th:Object="${user}" th:action="@{/admin/update}">
+        <div>
+            <label>Name:</label>
+            <input th:field="*{name}" type="text"/>
+        </div>
+        <div>
+            <label>Last name:</label>
+            <input th:field="*{lastName}" type="text"/>
+        </div>
+        <div>
+            <label>Email:</label>
+            <input th:field="*{email}" type="text"/>
+        </div>
+        <div>
+            <label>Age:</label>
+            <input th:field="*{age}" type="number"/>
+        </div>
+        <div>
+            <label>Username:</label>
+            <input th:field="*{username}" type="text"/>
+        </div>
+        <div>
+            <label>Password:</label>
+            <input th:field="*{password}" type="password"/>
+        </div>
+        <tr>
+            <td>
+                <label>Roles:
+                    <select size="2" multiple name="listRoles" required="required">
+                        <option selected="selected" value="1">USER</option>
+                        <option value="2">ADMIN</option>
+                    </select>
+                </label>
+            </td>
+        </tr>
+        <tr>
+        <button type="submit">Save</button>
+    </form>
+</div>
+<br>
+<br>
+<button class="buttonLogout" onclick="window.location.href = '/logout';">Logout</button>
+</body>
+</html>

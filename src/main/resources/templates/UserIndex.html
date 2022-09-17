@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UserPage</title>
+</head>
+<body>
+<h1 th:utext="${user.username}">id</h1>
+<table border="1">
+  <tr>
+    <th>UserId</th>
+    <th>Name</th>
+    <th>Last Name</th>
+    <th>Email</th>
+    <th>Age</th>
+  </tr>
+  <td th:utext="${user.id}">User_id</td>
+  <td th:utext="${user.name}">Name</td>
+  <td th:utext="${user.lastName}">Surname</td>
+  <td th:utext="${user.email}">Email</td>
+  <td th:utext="${user.age}">Age</td>
+</table>
+<br>
+<button class="buttonLogout" onclick="window.location.href = '/logout';">Logout</button>
+</body>
+</html>
